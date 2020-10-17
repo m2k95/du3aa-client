@@ -29,4 +29,13 @@ app.get('/', (req, res) =>{
     })
 })
 
+app.all('*', (req, res) => {
+    res.redirect('/')
+})
+
+app.use((err, req, res, next) => {
+    console.error('::: CATCH ERROR ::: ' + err)
+    res.send('501 internal error')
+})
+
 app.listen(PORT)
