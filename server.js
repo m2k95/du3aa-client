@@ -29,6 +29,10 @@ app.get('/', (req, res) =>{
     })
 })
 
+app.get('/prayer', (req, res) => {
+    res.render('prayer')
+})
+
 app.all('*', (req, res) => {
     res.redirect('/')
 })
