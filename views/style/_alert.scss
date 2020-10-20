@@ -14,18 +14,58 @@
         font-weight: bold;
 
         &.success{
-            border: 2px solid green;
-            background: rgb(168, 250, 168);
+            color: rgb(0, 77, 0);
+            border: 1px solid rgba(0, 204, 0, 0.7);
+            background: rgb(233, 255, 233);
         }
 
         &.danger{
-            border: 2px solid red;
-            background: rgb(252, 160, 160);
+            color: rgb(112, 0, 0);
+            border: 1px solid rgba(255, 0, 0, 0.7);
+            background: rgb(255, 228, 228);
         }
 
         &.warning{
-            border: 2px solid orange;
-            background: rgb(253, 185, 153);
+            color: rgb(105, 68, 0);
+            border: 1px solid rgba(255, 166, 0, 0.7);
+            background: rgb(255, 234, 225);
         }
+
+        &.primary{
+            color: rgb(0, 0, 119);
+            border: 1px solid rgba(121, 121, 255, 0.7);
+            background: rgb(241, 241, 255);
+        }
+
+    }
+
+    .alert-dismissible{
+        display:flex;
+        align-items:center;
+        justify-content:space-between
+    }
+        
+    .alert-btn{
+        width:2%;
+        font-size:1rem;
+        text-align:center;
+        font-weight:500;
+        color:inherit;
+        text-shadow:0 1px 0 #fff;
+        background:transparent;
+        outline:0;
+        box-shadow:none;
+        border:0;
+        position:relative;
+        cursor:pointer
+    }
+    
+    .alert-btn span{
+        margin:0;
+        position:absolute;
+        top:50%;
+        left:50%;
+        -ms-transform:translate(-50%,-50%);
+        transform:translate(-50%,-50%)
     }
 }
