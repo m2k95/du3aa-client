@@ -6,19 +6,27 @@
     <title>Du3aaAPI</title>
     <link rel="stylesheet" href="./style/style.min.css">
 
+    <script type="text/javascript" src="./javascript/prayerTimes.js"></script>
     <script src="./javascript/alerts.js" defer></script>
+
+    <style>
+        td, th {font-family: verdana; font-size: 12px; color: #404040;}
+		#maintable {border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em;}
+		#maintable td, #maintable th {border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #CCCCCC;}
+		#maintable th {color:black; text-align: center; font-weight: bold; background-color: #F8F7F4;}
+    </style>
 </head>
 <body dir="rtl">
-    <div class="msg"></div>
-    
+    <div class="msg">
+        <div class="alert primary">تم إغلاق تطبيق du3aaAPI</div>
+    </div>
     <div class="card">
-        <div class="title">du3aaAPI</div>
+        
+        <!-- <div class="title">du3aaAPI</div> -->
         <div class="paragraph">
-            <p>اسمح لـ تطبيق <span>du3aaAPI</span> بتغريد دعاء من حسابك كل ساعة</p>
-            <p>تطبيق <span>du3aaAPI</span> مغلق.</p>
+            <p>مواقيت الصلاة في دولة الكويت</p>
         </div>
-      
-        <div class="policy">
+        <!-- <div class="policy">
             <hr>
             <ul>
                 <li>نتبع شروط وقوانين موقع تويتر</li>
@@ -28,12 +36,9 @@
             <hr>
 
             <p><span>ملاحظة:</span> ان لم نقوم بالتغريد من حسابك فهذا يعني ان هناك أعمال صيانة للآلي. نعمل على أن يكون الآلي خال من الأخطاء</p>
-        </div>
-      
-        <div class="button">
-            <%- url %> 
-        </div>
+        </div> -->
     </div>
+    <div id="table" style="font-size: 12px;"></div>
 
     <!-- TBR -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -43,7 +48,7 @@
             if(Cookies.get('alert') == undefined){
                 $('.msg').html(`
                 <div class="alert alert-dismissible primary">
-                    Hello World
+                    تم إغلاق تطبيق du3aaAPI
                     <button class="alert-btn">
                         <span aria-hidden="true">x</span>
                     </button>
@@ -55,6 +60,26 @@
                 })
             }
         });
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = dd + '-' + mm + '-' + yyyy;
+
+        let timings = getTimings(today);
+        timings.then(data => {
+            console.log(data)
+            var table = '<table id="maintable">'
+                table += `<tr><th colspan="2">${today}</th></tr>`
+                table += `<tr><td>الفجر</td><td>${data.Fajr}</td></tr>`
+                table += `<tr><td>الظهر</td><td>${data.Dhuhr}</td></tr>`
+                table += `<tr><td>العصر</td><td>${data.Asr}</td></tr>`
+                table += `<tr><td>المغرب</td><td>${data.Maghrib}</td></tr>`
+                table += `<tr><td>العشاء</td><td>${data.Isha}</td></tr>`
+                table += '</table>'
+            document.querySelector('#table').innerHTML = table
+        })
     </script>
 </body>
 </html>
