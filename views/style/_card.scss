@@ -14,48 +14,15 @@
         width: calc(100% - 40px);
     }
 
-    .title {
-        font-size: 2em;
-        font-family: "Rajdhani", serif;
-    }
-
     .paragraph{
         p{
             font-size: .8em;
-
-            span{
-                font-family: "Rajdhani", serif;
-            }
         }
     }
 
-    hr{
-        width: 100%;
-        border: .1px solid $ButtonBackground;
-        margin: 30px auto;
-    }
-
-    .button{
-        p{
-            color: $ButtonBackground;
-            margin: 15px 0;
-        }
-
-        .btn {
-            display: block;
-            background: $ButtonBackground;
-            color: $CardBackground;
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 5px;
-            box-shadow: rgba(0,0,0,0.9);
-            transition: all .2s ease-in-out;
-            text-decoration: none;
-            font-size: 1em;
-    
-            &:hover {
-                background: $ButtonHoverBackground;
-            }
-        }
+    .err{
+        margin: 20px 0;
+        font-size: 14px;
+        color: rgb(180, 0, 0);
     }
 }
