@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Daily Prayer maintable </title>
+    
+    <script type="text/javascript" src="./javascript/prayerTimes.js"></script>
+	<style>
+		body, td, th {font-family: verdana; font-size: 12px; color: #404040;}
+		#maintable {border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em;}
+		#maintable td, #maintable th {border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #CCCCCC;}
+		#maintable th {color:black; text-align: center; font-weight: bold; background-color: #F8F7F4;}
+	</style>
+</head>
+
+<body>
+    <p align="center">مواقيت الصلاة في دولة الكويت<p>
+    <div align="center" id="table" dir="rtl"></div>
+
+    <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = dd + '-' + mm + '-' + yyyy;
+
+        let timings = getTimings(today);
+        timings.then(data => {
+            console.log(data)
+            var table = '<table id="maintable">'
+                table += `<tr><th colspan="2">${today}</th></tr>`
+                table += `<tr><td>الفجر</td><td>${data.Fajr}</td></tr>`
+                table += `<tr><td>الظهر</td><td>${data.Dhuhr}</td></tr>`
+                table += `<tr><td>العصر</td><td>${data.Asr}</td></tr>`
+                table += `<tr><td>المغرب</td><td>${data.Maghrib}</td></tr>`
+                table += `<tr><td>العشاء</td><td>${data.Isha}</td></tr>`
+                table += '</table>'
+            document.querySelector('#table').innerHTML = table
+        })
+    </script>
+</body>
+</html>

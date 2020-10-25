@@ -5,33 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Du3aaAPI</title>
     <link rel="stylesheet" href="./style/style.min.css">
-
-    <script src="./javascript/alerts.js" defer></script>
 </head>
 <body dir="rtl">
-    <div class="msg"></div>
-    
+    <div class="msg">
+        <div class="alert primary">تم إغلاق تطبيق du3aaAPI</div>
+    </div>
     <div class="card">
-        <div class="title">du3aaAPI</div>
         <div class="paragraph">
-            <p>اسمح لـ تطبيق <span>du3aaAPI</span> بتغريد دعاء من حسابك كل ساعة</p>
+            <p>مواقيت الصلاة في دولة الكويت</p>
         </div>
-      
-        <div class="policy">
-            <hr>
-            <ul>
-                <li>نتبع شروط وقوانين موقع تويتر</li>
-                <li>لن نقوم بنشر او بيع بيانات الحسابات المشتركة</li>
-                <li>ننشر تغريدة واحدة (دعاء) كل ساعة بشكل آلي فقط</li>
-            </ul>
-            <hr>
 
-            <p><span>ملاحظة:</span> ان لم نقوم بالتغريد من حسابك فهذا يعني ان هناك أعمال صيانة للآلي. نعمل على أن يكون الآلي خال من الأخطاء</p>
-        </div>
-      
-        <div class="button">
-            <%- url %> 
-        </div>
+        <% if (typeof prayer !== 'undefined') { %>
+            <table id="prayer-table">
+                <tr><th colspan="2"><%- prayer.Date %></th></tr>
+                <tr><td>الفجر</td><td><%- prayer.Fajr %></td></tr>
+                <tr><td>الظهر</td><td><%- prayer.Dhuhr %></td></tr>
+                <tr><td>العصر</td><td><%- prayer.Asr %></td></tr>
+                <tr><td>المغرب</td><td><%- prayer.Maghrib %></td></tr>
+                <tr><td>العشاء</td><td><%- prayer.Isha %></td></tr>
+            </table>
+        <% } else { %>
+            <div class="err">
+                <p>الرجاء المحاولة لاحقًا أو أعِد تحميل الصفحة</p>
+            </div>
+        <% } %>
     </div>
 </body>
 </html>
