@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Du3aaAPI</title>
     <link rel="stylesheet" href="./style/style.min.css">
-
-    <script type="text/javascript" src="./javascript/prayerTimes.js"></script>
-    <script src="./javascript/alerts.js" defer></script>
-
-    <style>
-        td, th {font-family: verdana; font-size: 12px; color: #404040;}
-		#maintable {border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em;}
-		#maintable td, #maintable th {border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #CCCCCC;}
-		#maintable th {color:black; text-align: center; font-weight: bold; background-color: #F8F7F4;}
-    </style>
 </head>
 <body dir="rtl">
     <div class="msg">
@@ -24,49 +14,21 @@
         <div class="paragraph">
             <p>مواقيت الصلاة في دولة الكويت</p>
         </div>
-        <div id="table" style="font-size: 12px;"></div>
+
+        <% if (typeof prayer !== 'undefined') { %>
+            <table id="prayer-table">
+                <tr><th colspan="2"><%- prayer.Date %></th></tr>
+                <tr><td>الفجر</td><td><%- prayer.Fajr %></td></tr>
+                <tr><td>الظهر</td><td><%- prayer.Dhuhr %></td></tr>
+                <tr><td>العصر</td><td><%- prayer.Asr %></td></tr>
+                <tr><td>المغرب</td><td><%- prayer.Maghrib %></td></tr>
+                <tr><td>العشاء</td><td><%- prayer.Isha %></td></tr>
+            </table>
+        <% } else { %>
+            <div class="err">
+                <p>الرجاء المحاولة لاحقًا أو أعِد تحميل الصفحة</p>
+            </div>
+        <% } %>
     </div>
-
-    <!-- TBR -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){
-            if(Cookies.get('alert') == undefined){
-                $('.msg').html(`
-                <div class="alert alert-dismissible primary">
-                    تم إغلاق تطبيق du3aaAPI
-                    <button class="alert-btn">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                </div>
-                `)
-                $(".alert-btn").on("click",function(){
-                    $(this).closest(".alert-dismissible").hide()
-                    Cookies.set('alert', 1, { path: '/' })
-                })
-            }
-        });
-
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = dd + '-' + mm + '-' + yyyy;
-
-        let timings = getTimings(today);
-        timings.then(data => {
-            console.log(data)
-            var table = '<table id="maintable">'
-                table += `<tr><th colspan="2">${today}</th></tr>`
-                table += `<tr><td>الفجر</td><td>${data.Fajr}</td></tr>`
-                table += `<tr><td>الظهر</td><td>${data.Dhuhr}</td></tr>`
-                table += `<tr><td>العصر</td><td>${data.Asr}</td></tr>`
-                table += `<tr><td>المغرب</td><td>${data.Maghrib}</td></tr>`
-                table += `<tr><td>العشاء</td><td>${data.Isha}</td></tr>`
-                table += '</table>'
-            document.querySelector('#table').innerHTML = table
-        })
-    </script>
 </body>
 </html>
