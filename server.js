@@ -45,10 +45,6 @@ app.get('/', (req, res) =>{
     })
 })
 
-app.get('/prayer', (req, res) => {
-    res.render('prayer')
-})
-
 app.use((err, req, res, next) => {
     console.error('::: CATCH ERROR ::: ' + err)
     res.send('501 internal error')
