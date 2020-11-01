@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Rajdhani&display=swap");
+@import './colors';
+@import './dark';
 
 *, *:before, *:after {
     margin: 0;
@@ -7,8 +9,6 @@
 }
 
 body {
-    @import './colors';
-    
     background: $BodyBackground;
     display: flex;
     flex-direction: column;
