@@ -14,27 +14,27 @@
         font-weight: bold;
 
         &.success{
-            color: rgb(0, 77, 0);
-            border: 1px solid rgba(0, 204, 0, 0.7);
-            background: rgb(233, 255, 233);
+            color: $SuccessColor;
+            border: $SuccessBorder;
+            background: $SuccessBackground;
         }
 
         &.danger{
-            color: rgb(112, 0, 0);
-            border: 1px solid rgba(255, 0, 0, 0.7);
-            background: rgb(255, 228, 228);
+            color: $DangerColor;
+            border: $DangerBorder;
+            background: $DangerBackground;
         }
 
         &.warning{
-            color: rgb(105, 68, 0);
-            border: 1px solid rgba(255, 166, 0, 0.7);
-            background: rgb(255, 234, 225);
+            color: $WarningColor;
+            border: $WarningBorder;
+            background: $WarningBackground;
         }
 
         &.primary{
-            color: rgb(0, 0, 119);
-            border: 1px solid rgba(121, 121, 255, 0.7);
-            background: rgb(241, 241, 255);
+            color: $PrimaryColor;
+            border: $PrimaryBorder;
+            background: $PrimaryBackground;
         }
 
     }
