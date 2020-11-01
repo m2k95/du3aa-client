@@ -1,7 +1,14 @@
 body.dark{
+    // Main
     $BodyBackground: red;
     $CardBackground: #fff;
     $FontColor: #000;
+
+    // Prayer table
+    $prayerTableColor: #404040;
+    $prayerTableBorderColor: gray;
+    $prayerTableTHBorderColor: #CCCCCC;
+    $prayerTableBGColor: #F8F7F4;
 
     // Alerts
     $SuccessColor: rgb(0, 77, 0);
@@ -19,4 +26,8 @@ body.dark{
     $PrimaryColor: rgb(0, 0, 119);
     $PrimaryBorder: 1px solid rgba(121, 121, 255, 0.7);
     $PrimaryBackground: rgb(241, 241, 255);
+
+    // Applying style
+    background: $BodyBackground;
+    @import './core';
 }
