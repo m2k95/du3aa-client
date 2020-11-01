@@ -1,0 +1,53 @@
+// _card
+.card {
+  background: $CardBackground;
+  color: $FontColor;
+}
+
+// _prayerTable
+td, th {
+  color: $prayerTableColor;
+}
+
+#prayer-table {
+  border-color: $prayerTableBorderColor; 
+}
+
+#prayer-table td, #prayer-table th {
+  border-color: $prayerTableTHBorderColor;
+}
+
+#prayer-table th {
+  background-color: $prayerTableBGColor;
+}
+
+// _alert
+.msg{
+  .alert{
+    color: $CardBackground;
+
+    &.success{
+      color: $SuccessColor;
+      border: $SuccessBorder;
+      background: $SuccessBackground;
+    }
+
+    &.danger{
+      color: $DangerColor;
+      border: $DangerBorder;
+      background: $DangerBackground;
+    }
+
+    &.warning{
+      color: $WarningColor;
+      border: $WarningBorder;
+      background: $WarningBackground;
+    }
+
+    &.primary{
+      color: $PrimaryColor;
+      border: $PrimaryBorder;
+      background: $PrimaryBackground;
+    }
+  }
+}
