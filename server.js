@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000
 app.use(express.static(path.join(__dirname, 'views')))
 app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   let today = new Date()
   const dd = String(today.getDate()).padStart(2, '0')
   const mm = String(today.getMonth() + 1).padStart(2, '0')
