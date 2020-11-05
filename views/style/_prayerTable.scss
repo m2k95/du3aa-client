@@ -1,5 +1,5 @@
 td, th {
-    font-size: 12px;
+    font-size: 14px;
     color: $prayerTableColor;
 }
 
@@ -23,8 +23,8 @@ td, th {
 }
 
 #prayer-table th {
-    color:black; 
+    color:$prayerTableHeaderColor;
     text-align: center; 
     font-weight: bold; 
-    background-color: $prayerTableBGColor;
+    background-color: $prayerTableHeaderBGColor;
 }
