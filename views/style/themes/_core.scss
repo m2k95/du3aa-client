@@ -3,6 +3,10 @@
   background: $CardBackground;
   border: $CardBorder;
   color: $FontColor;
+
+  .err{
+    color: $ErrorColor;
+  }
 }
 
 // _prayerTable
