@@ -19,7 +19,8 @@ td, th {
 }
 
 #prayer-table th {
-  background-color: $prayerTableBGColor;
+  color:$prayerTableHeaderColor;
+  background-color: $prayerTableHeaderBGColor;
 }
 
 // _alert
