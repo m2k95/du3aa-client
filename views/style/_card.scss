@@ -34,4 +34,13 @@
             font-size: 15px;
         }
     }
+
+    .api-page{
+        font-family: sans-serif;
+        a{
+            text-decoration: none;
+            font-size: .8em;
+            color: $APIpageLink;
+        }
+    }
 }
