@@ -47,6 +47,7 @@ app.get('*', (req, res) => {
 
 app.use((err, req, res, next) => {
   console.error('::: CATCH ERROR ::: ' + err)
+  res.status(501)
   res.send('501 internal error')
 })
 
