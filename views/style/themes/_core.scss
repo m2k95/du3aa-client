@@ -7,6 +7,12 @@
   .err{
     color: $ErrorColor;
   }
+
+  .api-page{
+    a{
+      color: $APIpageLink;
+    }
+  }
 }
 
 // _prayerTable
