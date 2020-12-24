@@ -21,3 +21,12 @@ body {
 @import './card';
 @import './prayerTable';
 @import './alert';
+
+.version{
+    margin-bottom: 5px;
+    font-size: small;
+
+    span{
+        font-weight: bold;
+    }
+}
