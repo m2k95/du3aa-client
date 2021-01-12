@@ -6,6 +6,8 @@ const path = require('path')
 const app = express()
 const PORT = process.env.PORT || 4000
 
+const pkg = require('./package.json')
+
 app.use(express.static(path.join(__dirname, 'views')))
 app.set('view engine', 'ejs')
 
@@ -34,9 +36,9 @@ app.get('*', (req, res) => {
           Isha: `${reformatDate(Isha)}`,
           Date: today
         }
-        res.render('index', { prayer })
+        res.render('index', { prayer, version: pkg.version })
       } else {
-        res.render('index')
+        res.render('index', { version: pkg.version })
       }
     })
     .catch(err => {
