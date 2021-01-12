@@ -18,8 +18,14 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+#q8prayers{
+    table{
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 @import './card';
-@import './prayerTable';
 @import './alert';
 
 .version{
