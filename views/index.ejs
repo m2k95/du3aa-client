@@ -4,31 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Du3aaAPI</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.css">
     <link rel="stylesheet" href="/style/style.min.css">
 
+    <script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.js" defer></script>
     <script src="/javascript/dark-mode.js" defer></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body dir="rtl">
     <div class="card">
-        <div class="paragraph">
-            <p>مواقيت الصلاة في دولة الكويت</p>
-        </div>
-
-        <% if (typeof prayer !== 'undefined') { %>
-            <table id="prayer-table">
-                <tr><th colspan="2"><%- prayer.Date %></th></tr>
-                <tr><td>الفجر</td><td><%- prayer.Fajr %></td></tr>
-                <tr><td>الظهر</td><td><%- prayer.Dhuhr %></td></tr>
-                <tr><td>العصر</td><td><%- prayer.Asr %></td></tr>
-                <tr><td>المغرب</td><td><%- prayer.Maghrib %></td></tr>
-                <tr><td>العشاء</td><td><%- prayer.Isha %></td></tr>
-            </table>
-        <% } else { %>
-            <div class="err">
-                <p>الرجاء المحاولة لاحقًا أو أعِد تحميل الصفحة</p>
-            </div>
-        <% } %>
+        <div id="q8prayers" data-lang="ar"></div>
 
         <div class="twitter-follow">
             <p>نقوم بتغريد دعاء كل نصف ساعة</p>
