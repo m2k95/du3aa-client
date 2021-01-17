@@ -66,5 +66,7 @@ td, th {
 
 // Footer version
 .version{
-  color: $VersionColor;
+  a{
+    color: $VersionColor;
+  }
 }
