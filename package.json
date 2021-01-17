@@ -1,6 +1,6 @@
 {
   "name": "du3aa-client",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Du3aaAPI App Client",
   "main": "server.js",
   "scripts": {
